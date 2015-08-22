@@ -2,8 +2,10 @@ FROM davask/debian-5.0-lenny
 MAINTAINER Harald Albers
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -yqq --force-yes --no-install-recommends \
-    build-essential \
     bison \
+    bzip2 \
+    g++ \
+    make \
     texinfo
 
 ENV LEGACY_BASH_VERSION 3.2.57
