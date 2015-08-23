@@ -1,4 +1,5 @@
-#Bash completion like on a MacBook
+Bash completion like on a MacBook
+---------------------------------
 
 MacBooks ship with rather outdated versions of **bash** and **bash-completion**:
 
@@ -16,8 +17,6 @@ Use this Docker image if you want to test your bash completion scripts against t
 
 How to use
 --------------
-_This image is available as `albers/bash-completion-mac` on [Docker Hub](https://hub.docker.com/)._
-
 Start a container with your completion script mounted into `/etc/bash_completion.d/`, e.g.
 
     docker run -i -t -v /path/to/completion-script:/etc/bash_completion.d/completion-script albers/bash-completion-mac
