@@ -1,12 +1,14 @@
-FROM davask/debian-5.0-lenny
+FROM ubuntu:14.04
 MAINTAINER Harald Albers
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -yqq --force-yes --no-install-recommends \
-    bison \
-    bzip2 \
-    g++ \
-    make \
-    texinfo
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
+        bison \
+        g++ \
+        make \
+        wget && \
+    apt-get clean && \
+    rm -r /var/lib/apt/lists/*
 
 ENV LEGACY_BASH_VERSION 3.2.57
 ENV BUILD_DIR /tmp/bash-$LEGACY_BASH_VERSION
