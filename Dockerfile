@@ -4,6 +4,7 @@ MAINTAINER Harald Albers
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
         bison \
+        ca-certificates \
         g++ \
         make \
         wget && \
@@ -12,7 +13,7 @@ RUN apt-get update && \
 
 ENV LEGACY_BASH_VERSION 3.2.57
 ENV BUILD_DIR /tmp/bash-$LEGACY_BASH_VERSION
-RUN wget -O- -q http://ftp.gnu.org/gnu/bash/bash-${LEGACY_BASH_VERSION}.tar.gz | tar xzf - -C /tmp && \
+RUN wget -O- -q https://ftp.gnu.org/gnu/bash/bash-${LEGACY_BASH_VERSION}.tar.gz | tar xzf - -C /tmp && \
     cd $BUILD_DIR && \
     ./configure --exec-prefix= && \
     make && \
@@ -22,7 +23,7 @@ RUN wget -O- -q http://ftp.gnu.org/gnu/bash/bash-${LEGACY_BASH_VERSION}.tar.gz |
 
 ENV LEGACY_COMPLETION_VERSION 1.3
 ENV BUILD_DIR /tmp/bash-completion-$LEGACY_COMPLETION_VERSION
-RUN wget -O- -q http://bash-completion.alioth.debian.org/files/bash-completion-${LEGACY_COMPLETION_VERSION}.tar.bz2 | tar xjf - -C /tmp && \
+RUN wget -O- -q https://bash-completion.alioth.debian.org/files/bash-completion-${LEGACY_COMPLETION_VERSION}.tar.bz2 | tar xjf - -C /tmp && \
     cd $BUILD_DIR && \
     ./configure --prefix= && \
     make && \
