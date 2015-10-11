@@ -32,6 +32,7 @@ RUN wget -O- -q https://bash-completion.alioth.debian.org/files/bash-completion-
     rm -r $BUILD_DIR
 
 RUN echo ". /etc/bash_completion" >> /root/.bashrc
+RUN echo "shopt -u extglob" >> /root/.bashrc
 
 WORKDIR /root
 CMD /bin/bash
